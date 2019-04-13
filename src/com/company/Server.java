@@ -1,12 +1,12 @@
 package com.company;
 
 public class Server {
-    private MJRoom mjRoom;
+    private MJTable mjTable;
     private String name;
 
     public Server(String userName){
         name = userName;
-        mjRoom = new MJRoom(name,this, null);
+        mjTable = new MJTable(name,this, null);
     }
 
     public void start(){

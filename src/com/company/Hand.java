@@ -3,11 +3,11 @@ package com.company;
 import java.util.*;
 
 public class Hand {
-    private int myID;
+//    private int myID;
     private Map<MJ, Integer> inHand;
 
-    public Hand(int id){
-        myID = id;
+    public Hand(){
+//        myID = id;
         inHand = new HashMap<>();
     }
 
@@ -22,11 +22,4 @@ public class Hand {
 
     }
 
-    public void setMyID(int myID) {
-        this.myID = myID;
-    }
-
-    public int getMyID() {
-        return myID;
-    }
 }
