@@ -103,4 +103,6 @@ public class MJRoom {
     public int getId() {
         return id;
     }
+
+    
 }
