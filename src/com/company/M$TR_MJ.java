@@ -14,9 +14,10 @@ public class M$TR_MJ {
         System.out.println("Welcome to M$TR MJ.");
 
         String ans;
+        System.out.println("Enter your user name: ");
+        String name = sc.nextLine();
         do{
-            System.out.println("Enter your user name: ");
-            String name = sc.nextLine();
+
             System.out.println("\nEnter \"s\" to creat a Majiang table or enter \"c\" to join an existing table. Enter \"q\" to quit.");
             ans = sc.nextLine();
 

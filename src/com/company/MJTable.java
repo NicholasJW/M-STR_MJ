@@ -25,13 +25,16 @@ public class MJTable {
 
     private JPanel playPanel;
     private JPanel centerTable;
-    private JPanel myHand;
-    private JPanel leftHand;
-    private JPanel rightHand;
-    private JPanel midHand;
-
-
-    private JPanel myOut;
+    private JPanel myHandPanel;
+    private JPanel myOutPanel;
+    private JPanel leftOutPanel;
+    private JPanel midOutPanel;
+    private JPanel rightOutPanel;
+    private JPanel buttonPanel;
+    private JButton huButton;
+    private JButton pengButton;
+    private JButton gangButton;
+    private JButton guoButton;
 
     private JPanel logPanel;
     private JLabel logText;
@@ -83,11 +86,56 @@ public class MJTable {
         playPanel.setPreferredSize(new Dimension(1400, 830));
         playPanel.setBackground(new Color(0, 100, 0));
 
+        initializePanels();
+        initializeButtons();
+    }
+
+    private void initializePanels(){
         centerTable = new JPanel();
 //        centerTable.setPreferredSize(new Dimension(600, 400));
         playPanel.add(centerTable);
-        centerTable.setLocation(400,200);
-        centerTable.setSize(600, 400);
+        centerTable.setLocation(350,130);
+        centerTable.setSize(700, 500);
+
+        myHandPanel = new JPanel();
+        playPanel.add(myHandPanel);
+        myHandPanel.setLocation(240, 680);
+        myHandPanel.setSize(900, 80);
+
+        myOutPanel = new JPanel();
+        playPanel.add(myOutPanel);
+        myOutPanel.setLocation(0,530);
+        myOutPanel.setSize(200,300);
+
+        leftOutPanel = new JPanel();
+        playPanel.add(leftOutPanel);
+        leftOutPanel.setLocation(0,130);
+        leftOutPanel.setSize(200,300);
+
+        midOutPanel = new JPanel();
+        playPanel.add(midOutPanel);
+        midOutPanel.setLocation(350,0);
+        midOutPanel.setSize(700,50);
+
+        rightOutPanel = new JPanel();
+        playPanel.add(rightOutPanel);
+        rightOutPanel.setLocation(1200,130);
+        rightOutPanel.setSize(200,300);
+    }
+
+    private void initializeButtons(){
+        huButton = new JButton("hu button");
+        pengButton = new JButton("peng button");
+        gangButton = new JButton("gang button");
+        guoButton = new JButton("guo button");
+        buttonPanel = new JPanel();
+        buttonPanel.add(huButton);
+        buttonPanel.add(pengButton);
+        buttonPanel.add(gangButton);
+        buttonPanel.add(guoButton);
+        playPanel.add(buttonPanel);
+        buttonPanel.setLocation(1200,600);
+        buttonPanel.setSize(200,200);
 
     }
 
