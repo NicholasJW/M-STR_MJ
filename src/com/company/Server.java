@@ -6,7 +6,15 @@ public class Server {
 
     public Server(String userName){
         name = userName;
-        mjTable = new MJTable(name,this, null);
+        mjTable = new MJTable(this, null);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void start(){

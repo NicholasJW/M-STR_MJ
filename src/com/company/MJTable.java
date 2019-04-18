@@ -2,6 +2,10 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class MJTable {
     int id;
@@ -18,13 +22,12 @@ public class MJTable {
 
     private MJ onTable;
 
-
     // GUI instances
     private JFrame guiFrame;
     private JPanel mainPanel;
-
     private JPanel playPanel;
     private JPanel centerTable;
+    private JPanel bigMJ;
     private JPanel myHandPanel;
     private JPanel myOutPanel;
     private JPanel leftOutPanel;
@@ -35,21 +38,25 @@ public class MJTable {
     private JButton pengButton;
     private JButton gangButton;
     private JButton guoButton;
-
     private JPanel logPanel;
     private JLabel logText;
     private JTextField logInput;
     private JButton logButton;
 
-    public MJTable(String userName, Server server, Client client){
+
+    public MJTable(Server server, Client client){
 //        this.id = id;
-        this.name = userName;
+//        this.name = userName;
         this.server = server;
         this.client = client;
-        if(server == null)
+        if(server == null){
+            name = client.getName();
             isServer = false;
-        else
+        }
+        else{
+            name = server.getName();
             isServer = true;
+        }
 
         guiFrame = new JFrame();
         //make sure the program exits when the frame closes
@@ -91,8 +98,14 @@ public class MJTable {
     }
 
     private void initializePanels(){
+        bigMJ = new JPanel();
+        playPanel.add(bigMJ);
+        bigMJ.setLocation(610, 250);
+//        bigMJ.setBackground(Color.black);
+        bigMJ.setSize(150,200);
+        bigMJ.setBorder(BorderFactory.createLineBorder(Color.black));
+
         centerTable = new JPanel();
-//        centerTable.setPreferredSize(new Dimension(600, 400));
         playPanel.add(centerTable);
         centerTable.setLocation(350,130);
         centerTable.setSize(700, 500);
@@ -172,6 +185,18 @@ public class MJTable {
 
     public int getId() {
         return id;
+    }
+
+    public void setCenterMJ(MJ mj){
+        try{
+            BufferedImage myPicture = ImageIO.read(new File(mj.getFileName()));
+            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+            bigMJ.add(picLabel);
+        }catch(Exception e){
+            System.out.println("Error loading MJ Image");
+            System.exit(1);
+        }
+//        bigMJ.setVisible(true);
     }
 
 

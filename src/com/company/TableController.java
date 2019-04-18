@@ -2,6 +2,9 @@
 
 package com.company;
 
-public class MJController {
+public class TableController {
     Server server;
+    MJTable myTable;
+
+
 }
