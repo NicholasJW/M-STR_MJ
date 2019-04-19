@@ -102,7 +102,7 @@ public class MJTable {
         playPanel.add(bigMJ);
         bigMJ.setLocation(610, 250);
 //        bigMJ.setBackground(Color.black);
-        bigMJ.setSize(150,200);
+        bigMJ.setSize(250,300);
         bigMJ.setBorder(BorderFactory.createLineBorder(Color.black));
 
         centerTable = new JPanel();
@@ -190,14 +190,15 @@ public class MJTable {
     public void setCenterMJ(MJ mj){
         try{
             BufferedImage myPicture = ImageIO.read(new File(mj.getFileName()));
-            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-            bigMJ.add(picLabel);
+//            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+//            JLabel picLabel = new JLabel("This is the pic label");
+//            bigMJ.add(picLabel);
+            bigMJ.add(new JButton("Test Button"));
         }catch(Exception e){
             System.out.println("Error loading MJ Image");
             System.exit(1);
         }
 //        bigMJ.setVisible(true);
     }
-
 
 }
