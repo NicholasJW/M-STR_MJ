@@ -11,7 +11,7 @@ public class TestMJTable {
         MJTable t1 = new MJTable(new Server("test server"), null);
         MJ mj = new MJ(1, -1);
 
-        t1.setCenterMJ(mj);
+//        t1.setCenterMJ(mj);
 
     }
 }

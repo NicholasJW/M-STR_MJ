@@ -46,7 +46,7 @@ public class MJ {
     }
 
     public String getFileName() {
-        System.out.println(fileName);
+//        System.out.println(fileName);
         return fileName;
     }
 
