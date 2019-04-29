@@ -1,10 +1,11 @@
+// GUI class for MJ Table
+
 package com.company;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.File;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class MJTable {
@@ -138,10 +139,10 @@ public class MJTable {
     }
 
     private void initializeButtons(){
-        huButton = new JButton("hu button");
-        pengButton = new JButton("peng button");
-        gangButton = new JButton("gang button");
-        guoButton = new JButton("guo button");
+        huButton = new JButton("胡button");
+        pengButton = new JButton("碰button");
+        gangButton = new JButton("杠button");
+        guoButton = new JButton("过button");
         buttonPanel = new JPanel();
         buttonPanel.add(huButton);
         buttonPanel.add(pengButton);
@@ -163,6 +164,26 @@ public class MJTable {
         logPanel.add(logText);
         logPanel.add(logInput);
         logPanel.add(logButton);
+    }
+
+    public void paintMyHand(){
+        myHandPanel.setLayout(new GridLayout(1,14));
+        for(MJ mj:hand.getQueue()){
+            try{
+                System.out.println(mj.getFileName());
+                BufferedImage myPicture = ImageIO.read(new File(mj.getFileName()));
+                JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+                myHandPanel.add(picLabel);
+            }catch(Exception e){
+                System.out.println("Error loading my hand");
+                System.exit(1);
+            }
+        }
+        guiFrame.pack();
+    }
+
+    public void setHand(Hand hand) {
+        this.hand = hand;
     }
 
     private void setServerLog(){
@@ -200,8 +221,17 @@ public class MJTable {
             System.exit(1);
         }
 
+        bigMJ.setVisible(true);
         guiFrame.pack();
 //        bigMJ.setVisible(true);
+    }
+
+    public void clearCenterMJ(){
+        bigMJ.removeAll();
+        bigMJ.revalidate();
+        bigMJ.repaint();
+        guiFrame.pack();
+        bigMJ.setVisible(false);
     }
 
 }

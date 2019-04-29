@@ -1,13 +1,15 @@
 package com.company;
 
 public class MJ {
+    private int index;
     private int num;
     // -1 for Wan, 0 for Tong, 1 for Tiao
     private int color;
     private final String prefix = "/Users/ywan/MJmstr/src/com/company/pics/";
     private String fileName = prefix;
 
-    public MJ(int num, int color){
+    public MJ(int index, int num, int color){
+        this.index = index;
         this.color = color;
         this.num = num;
         fileName += Integer.toString(num);
@@ -23,6 +25,14 @@ public class MJ {
                 break;
         }
         fileName += ".png";
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     public int getColor() {
@@ -48,6 +58,18 @@ public class MJ {
     public String getFileName() {
 //        System.out.println(fileName);
         return fileName;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+
+        if (!(o instanceof MJ))
+            return false;
+
+        MJ mj = (MJ) o;
+        return this.num == mj.getNum() && this.color == mj.getColor();
     }
 
 }
